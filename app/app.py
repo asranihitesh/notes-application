@@ -90,7 +90,7 @@ def work():
 
 @app.get("/mem")
 def mem():
-    """Allocate ~mb MiB of real memoOOOOOOOOOOOOOOry and hold it. Over the container limit →
+    """Allocate ~mb MiB of real memory and hold it. Over the container limit →
     kernel OOMKills (exit 137). ?mb (default 50), ?hold seconds (default 15)."""
     mb = int(request.args.get("mb", "50"))
     hold = int(request.args.get("hold", "15"))
