@@ -76,10 +76,10 @@ jobs:
         with:
           repository: ${{ github.repository_owner }}/${{ env.GITOPS_REPO }}
           token: ${{ secrets.GITOPS_TOKEN }}
-          path: gitops
+          path: notes-gitops
 
       - name: Write the new image tag into the GitOps repo (this IS the deploy)
-        working-directory: gitops
+        working-directory: notes-gitops
         run: |
           # Match ANY ghcr.io image line, not just this image name: the manifest ships
           # pointing at the course's public image so the first sync works, and this is
