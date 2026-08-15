@@ -98,6 +98,9 @@ pipeline {
                     // not populated in every job type, and when it isn't you get
                     // "Cannot invoke method take() on null object" on build #1.
                     env.SHA = scmVars.GIT_COMMIT          // full 40 chars, like $GITHUB_SHA
+
+                    echo "DEBUG scmVars.GIT_COMMIT = ${scmVars.GIT_COMMIT}"
+                    echo "DEBUG env.SHA = ${env.SHA}"
                 }
                 echo "Building ${env.IMAGE}:${env.SHA}"
             }
