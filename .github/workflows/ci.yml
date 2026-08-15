@@ -75,7 +75,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner }}/${{ env.GITOPS_REPO }}
-          token: ${{ secrets.GITOPS-TOKEN }}
+          token: ${{ secrets.GITOPS_TOKEN }}
           path: notes-gitops
 
       - name: Write the new image tag into the GitOps repo (this IS the deploy)
