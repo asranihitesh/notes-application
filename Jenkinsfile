@@ -97,7 +97,10 @@ pipeline {
                     // Take the SHA from what checkout RETURNS. env.GIT_COMMIT is
                     // not populated in every job type, and when it isn't you get
                     // "Cannot invoke method take() on null object" on build #1.
-                    env.SHA = scmVars.GIT_COMMIT          // full 40 chars, like $GITHUB_SHA
+                    env.SHA = sh(
+                        script: 'git rev-parse HEAD',
+                        returnStdout: true
+                    ).trim()
 
                     echo "DEBUG scmVars.GIT_COMMIT = ${scmVars.GIT_COMMIT}"
                     echo "DEBUG env.SHA = ${env.SHA}"
